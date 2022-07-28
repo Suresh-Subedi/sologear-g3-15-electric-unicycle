@@ -21,3 +21,13 @@ XINAOMA
 ### Useful software
 STM32 ST-LINK Utility\
 Ghidra with SVD-Loader
+
+### Connections
+|Marking on board|Connections|Connected                    |
+|----------------|-----------|-----------------------------|
+|P2              |2          |5v SPK unpopulated           |
+|P3              |3          |2p connected power status led|
+|P4              |5          |2mm: battery level           |
+|P5              |5          |2.5mm: hall effect sensor    |
+|P6              |2          |disconnected                 |
+|P7              |2          |led/switch                   |
