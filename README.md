@@ -33,12 +33,14 @@ Ghidra with SVD-Loader
 |P7              |2          |Switch                       |
 #### Switch
 |Marking on board|Color|Switch|
+|----------------|-----|------|
 |P3              |Red  |      |
 |P3              |Black|      |
 |P7              |Red  |      |
 |P7              |White|Center|
 #### LED Display
 |Marking on board|Color|Switch|
+|----------------|-----|------|
 |P3              |Red  |      |
 |P3              |Black|      |
 |P7              |Red  |      |
