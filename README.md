@@ -25,7 +25,7 @@ Ghidra with SVD-Loader
 ### Connections
 |Marking on board|Connections|Connected                    |
 |----------------|-----------|-----------------------------|
-|P2              |2          |5v SPK Pnpopulated           |
+|P2              |2          |5v SPK Unpopulated           |
 |P3              |3          |2p connected to switch LED   |
 |P4              |5          |2mm: battery level           |
 |P5              |5          |2.5mm: hall effect sensor    |
