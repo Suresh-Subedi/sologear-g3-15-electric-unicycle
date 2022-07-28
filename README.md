@@ -39,13 +39,13 @@ Ghidra with SVD-Loader
 |P7              |Red  |      |
 |P7              |White|Center|
 #### LED Display
-|Marking on board|Color|Switch|
-|----------------|-----|------|
-|P3              |Red  |      |
-|P3              |Black|      |
-|P7              |Red  |      |
-|P7              |White|      |
-|P7              |White|      |
+|Marking on board|Color |Display|
+|----------------|------|-------|
+|P4              |Red   |       |
+|P4              |Black |       |
+|P4              |Blue  |       |
+|P4              |Yellow|       |
+|P4              |Green |       |
 #### Charging port
 Red
 Black
