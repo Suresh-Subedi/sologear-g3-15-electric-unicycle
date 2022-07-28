@@ -56,3 +56,6 @@ Connected to battery
 |Yellow|Y?              |
 |Green |V               |
 |Blue  |W               |
+
+![image](https://user-images.githubusercontent.com/7327694/181603426-59b6c1a9-ce35-4718-99e6-8ff5b3bffbaf.png)
+
