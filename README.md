@@ -25,9 +25,32 @@ Ghidra with SVD-Loader
 ### Connections
 |Marking on board|Connections|Connected                    |
 |----------------|-----------|-----------------------------|
-|P2              |2          |5v SPK unpopulated           |
-|P3              |3          |2p connected power status led|
+|P2              |2          |5v SPK Pnpopulated           |
+|P3              |3          |2p connected to switch LED   |
 |P4              |5          |2mm: battery level           |
 |P5              |5          |2.5mm: hall effect sensor    |
-|P6              |2          |disconnected                 |
-|P7              |2          |led/switch                   |
+|P6              |2          |Disconnected                 |
+|P7              |2          |Switch                       |
+#### Switch
+|Marking on board|Color|Switch|
+|P3              |Red  |      |
+|P3              |Black|      |
+|P7              |Red  |      |
+|P7              |White|Center|
+#### LED Display
+|Marking on board|Color|Switch|
+|P3              |Red  |      |
+|P3              |Black|      |
+|P7              |Red  |      |
+|P7              |White|      |
+|P7              |White|      |
+#### Charging port
+Red
+Black
+Connected to battery
+#### Motor connection
+|Color |Marking on board|
+|------|----------------|
+|Yellow|Y?              |
+|Green |V               |
+|Blue  |W               |
