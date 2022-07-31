@@ -1,11 +1,10 @@
 # Sologear G3-15 Electric Unicycle
 Sologear G3-15 Electric Unicycle reverse engineering to reuse motherboard with custom firmware
 
-![image](https://user-images.githubusercontent.com/7327694/182049398-a9380484-1c89-494b-8026-4aa1d40d7d44.png)
+![image](./images/pcb-front.png)
+![image](./images/pcb-back.png)
+![image](./images/pcb-schema-kicad.png)
 
-
-![image](https://user-images.githubusercontent.com/7327694/182027742-2f7adce6-3381-420a-9f2c-5847d1e44d63.png)
-![image](https://user-images.githubusercontent.com/7327694/182027750-17d46af4-bab4-4cc0-809f-929fa3575e1d.png)
 #### Connections
 |STM32F103C8T6|MPU 6050|Comment         |
 |-------------|--------|----------------|
@@ -82,6 +81,3 @@ Connected to battery
 |Yellow|Y?              |
 |Green |V               |
 |Blue  |W               |
-
-![image](https://user-images.githubusercontent.com/7327694/181603426-59b6c1a9-ce35-4718-99e6-8ff5b3bffbaf.png)
-
