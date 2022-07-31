@@ -1,3 +1,5 @@
+![image](https://user-images.githubusercontent.com/7327694/182027742-2f7adce6-3381-420a-9f2c-5847d1e44d63.png)
+![image](https://user-images.githubusercontent.com/7327694/182027750-17d46af4-bab4-4cc0-809f-929fa3575e1d.png)
 #### Connections
 |STM32F103|MPU 6050|Comment         |
 |---------|--------|----------------|
