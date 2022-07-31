@@ -1,3 +1,24 @@
+#### Connections
+|STM32F103|MPU 6050|Comment         |
+|---------|--------|----------------|
+|PB7      |SDA     |Via resistor R31|
+|PB6      |SCL     |Via resistor R33|
+
+|STM32F103|SWD|
+|---------|---|
+|PA14     |SWC|
+|PA13     |SWD|
+|         |3V3|
+|         |GND|
+
+|STM32F103|P4 Battery Indicator|Color |Comment        |
+|---------|--------------------|------|---------------|
+|PA15     |1                   |Black |Via resistor R1|
+|PB4      |2                   |Blue  |Via resistor R2|
+|PB5      |3                   |Yellow|Via resistor R3|
+|PB8      |4                   |Green |Via resistor R4|
+|         |5                   |Red   |+5V            |
+
 # Sologear G3-15 Electric Unicycle
 Sologear G3-15 Electric Unicycle reverse engineering to reuse motherboard with custom firmware
 
