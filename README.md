@@ -1,3 +1,6 @@
+# Sologear G3-15 Electric Unicycle
+Sologear G3-15 Electric Unicycle reverse engineering to reuse motherboard with custom firmware
+
 ![image](https://user-images.githubusercontent.com/7327694/182027742-2f7adce6-3381-420a-9f2c-5847d1e44d63.png)
 ![image](https://user-images.githubusercontent.com/7327694/182027750-17d46af4-bab4-4cc0-809f-929fa3575e1d.png)
 #### Connections
@@ -20,9 +23,6 @@
 |PB5      |3                   |Yellow|Via resistor R3|
 |PB8      |4                   |Green |Via resistor R4|
 |         |5                   |Red   |+5V            |
-
-# Sologear G3-15 Electric Unicycle
-Sologear G3-15 Electric Unicycle reverse engineering to reuse motherboard with custom firmware
 
 ### Firmware
 Existing firmware was unprotected and could be read using STM-Link V2. Soldering headers was a bit difficult as pin holes were already filled with solder.
