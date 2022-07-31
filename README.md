@@ -4,25 +4,25 @@ Sologear G3-15 Electric Unicycle reverse engineering to reuse motherboard with c
 ![image](https://user-images.githubusercontent.com/7327694/182027742-2f7adce6-3381-420a-9f2c-5847d1e44d63.png)
 ![image](https://user-images.githubusercontent.com/7327694/182027750-17d46af4-bab4-4cc0-809f-929fa3575e1d.png)
 #### Connections
-|STM32F103|MPU 6050|Comment         |
-|---------|--------|----------------|
-|PB7      |SDA     |Via resistor R31|
-|PB6      |SCL     |Via resistor R33|
+|STM32F103C8T6|MPU 6050|Comment         |
+|-------------|--------|----------------|
+|PB7          |SDA     |Via resistor R31|
+|PB6          |SCL     |Via resistor R33|
 
-|STM32F103|SWD|
-|---------|---|
-|PA14     |SWC|
-|PA13     |SWD|
-|         |3V3|
-|         |GND|
+|STM32F103C8T6|SWD|
+|-------------|---|
+|PA14         |SWC|
+|PA13         |SWD|
+|             |3V3|
+|             |GND|
 
-|STM32F103|P4 Battery Indicator|Color |Comment        |
-|---------|--------------------|------|---------------|
-|PA15     |1                   |Black |Via resistor R1|
-|PB4      |2                   |Blue  |Via resistor R2|
-|PB5      |3                   |Yellow|Via resistor R3|
-|PB8      |4                   |Green |Via resistor R4|
-|         |5                   |Red   |+5V            |
+|STM32F103C8T6|P4 Battery Indicator|Color |Comment        |
+|-------------|--------------------|------|---------------|
+|PA15         |1                   |Black |Via resistor R1|
+|PB4          |2                   |Blue  |Via resistor R2|
+|PB5          |3                   |Yellow|Via resistor R3|
+|PB8          |4                   |Green |Via resistor R4|
+|             |5                   |Red   |+5V            |
 
 ### Firmware
 Existing firmware was unprotected and could be read using STM-Link V2. Soldering headers was a bit difficult as pin holes were already filled with solder.
