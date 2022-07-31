@@ -32,7 +32,7 @@ Existing firmware was unprotected and could be read using STM-Link V2. Soldering
 ### Components
 STM32F103C8T6\
 InvenSense MPU 6050\
-6 MOSFET ST P75NF75&
+6 MOSFET ST P75NF75&\
 [Half-bridge Driver](https://www.infineon.com/dgdl/irs2108.pdf?fileId=5546d462533600a40153567649d627a8)
 
 ### Battery
