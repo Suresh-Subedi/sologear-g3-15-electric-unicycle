@@ -28,6 +28,14 @@ Sologear G3-15 Electric Unicycle reverse engineering to reuse motherboard with c
 |PB8          |4                   |Green |Via resistor R4|
 |             |5                   |Red   |+5V            |
 
+|STM32F103C8T6|Hall sensor|Color |Comment        |
+|-------------|-----------|------|---------------|
+|             |1          |Black |GND            |
+|PA0          |2          |Blue  |               |
+|PA1          |3          |Yellow|               |
+|PA2          |4          |Green |               |
+|             |5          |Red   |               |
+
 ### Firmware
 Existing firmware was unprotected and could be read using STM-Link V2. Soldering headers was a bit difficult as pin holes were already filled with solder.
 
@@ -84,3 +92,7 @@ Connected to battery
 |Yellow|Y?              |
 |Green |V               |
 |Blue  |W               |
+
+???
+GND
+3.3V
