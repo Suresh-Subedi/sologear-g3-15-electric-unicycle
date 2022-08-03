@@ -36,6 +36,16 @@ Sologear G3-15 Electric Unicycle reverse engineering to reuse motherboard with c
 |PA2          |4          |Green |               |
 |             |5          |Red   |               |
 
+Half-Bridge Driver connections
+|STM32F103C8T6|IRS2108|
+|-------------|-------|
+|PB10         |HO1    |
+|PB09         |HO2    |
+|PB08         |HO3    |
+|PB15         |LO1    |
+|PB14         |LO2    |
+|PB13         |LO3    |
+
 ### Firmware
 Existing firmware was unprotected and could be read using STM-Link V2. Soldering headers was a bit difficult as pin holes were already filled with solder.
 
@@ -43,7 +53,7 @@ Existing firmware was unprotected and could be read using STM-Link V2. Soldering
 STM32F103C8T6\
 InvenSense MPU 6050\
 6 MOSFET ST P75NF75&\
-[Half-bridge Driver](https://www.infineon.com/dgdl/irs2108.pdf?fileId=5546d462533600a40153567649d627a8)
+[IRS2108 Half-bridge Driver](https://www.infineon.com/dgdl/irs2108.pdf?fileId=5546d462533600a40153567649d627a8)
 
 ### Battery
 59.2V/4.4Ah 260Wh SAMSUNG/22PM\
@@ -74,14 +84,7 @@ Ghidra with SVD-Loader
 |P3              |Black|      |
 |P7              |Red  |      |
 |P7              |White|Center|
-#### LED Display
-|Marking on board|Color |Display|
-|----------------|------|-------|
-|P4              |Red   |       |
-|P4              |Black |       |
-|P4              |Blue  |       |
-|P4              |Yellow|       |
-|P4              |Green |       |
+
 #### Charging port
 Red
 Black
