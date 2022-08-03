@@ -59,6 +59,15 @@ STM32 ST-LINK Utility\
 Ghidra with SVD-Loader
 
 ### Connections
+Half-Bridge Driver connections
+|STM32F103C8T6|IRS2108|
+|-------------|-------|
+|PB10         |HO1    |
+|PB09         |HO2    |
+|PB08         |HO3    |
+|PB15         |LO1    |
+|PB14         |LO2    |
+|PB13         |LO3    |
 |Marking on board|Connections|Connected                    |
 |----------------|-----------|-----------------------------|
 |P2              |2          |5v SPK Unpopulated           |
