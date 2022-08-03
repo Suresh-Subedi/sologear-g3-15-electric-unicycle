@@ -36,6 +36,16 @@ Sologear G3-15 Electric Unicycle reverse engineering to reuse motherboard with c
 |PA2          |4          |Green |               |
 |             |5          |Red   |               |
 
+Half-Bridge Driver connections
+|STM32F103C8T6|IRS2108|
+|-------------|-------|
+|PB10         |HO1    |
+|PB09         |HO2    |
+|PB08         |HO3    |
+|PB15         |LO1    |
+|PB14         |LO2    |
+|PB13         |LO3    |
+
 ### Firmware
 Existing firmware was unprotected and could be read using STM-Link V2. Soldering headers was a bit difficult as pin holes were already filled with solder.
 
@@ -59,15 +69,6 @@ STM32 ST-LINK Utility\
 Ghidra with SVD-Loader
 
 ### Connections
-Half-Bridge Driver connections
-|STM32F103C8T6|IRS2108|
-|-------------|-------|
-|PB10         |HO1    |
-|PB09         |HO2    |
-|PB08         |HO3    |
-|PB15         |LO1    |
-|PB14         |LO2    |
-|PB13         |LO3    |
 |Marking on board|Connections|Connected                    |
 |----------------|-----------|-----------------------------|
 |P2              |2          |5v SPK Unpopulated           |
@@ -83,14 +84,7 @@ Half-Bridge Driver connections
 |P3              |Black|      |
 |P7              |Red  |      |
 |P7              |White|Center|
-#### LED Display
-|Marking on board|Color |Display|
-|----------------|------|-------|
-|P4              |Red   |       |
-|P4              |Black |       |
-|P4              |Blue  |       |
-|P4              |Yellow|       |
-|P4              |Green |       |
+
 #### Charging port
 Red
 Black
