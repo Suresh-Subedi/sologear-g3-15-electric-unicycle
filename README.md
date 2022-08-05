@@ -6,6 +6,7 @@ Sologear G3-15 Electric Unicycle reverse engineering to reuse motherboard with c
 ![image](./images/pcb-front.jpg)
 ![image](./images/pcb-back.jpg)
 ![image](./images/pcb-schema-kicad.png)
+![image](./images/pcb-schema-kicad1.png)
 
 #### Connections
 |STM32F103C8T6|MPU 6050|Comment         |
