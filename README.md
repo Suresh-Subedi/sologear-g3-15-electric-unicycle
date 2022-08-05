@@ -1,5 +1,6 @@
 # Sologear G3-15 Electric Unicycle
-Sologear G3-15 Electric Unicycle reverse engineering to reuse motherboard with custom firmware
+Sologear G3-15 Electric Unicycle reverse engineering to reuse motherboard with custom firmware.
+Schematics of other generic cheaper electric unicycles (monowheels) should be same/similar. Let us know in the issues. You can also comment in Bill of materials.
 
 [Bill of materials](https://docs.google.com/spreadsheets/d/1EM--kQIaX84T2JI6LrDOyGJttcWCDYOLsfqfUfqGejQ/edit?usp=sharing)
 
