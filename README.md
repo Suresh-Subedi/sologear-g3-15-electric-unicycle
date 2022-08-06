@@ -48,12 +48,12 @@ Schematics of other generic cheaper electric unicycles (monowheels) should be sa
 Half-Bridge Driver connections
 |STM32F103C8T6|IRS2108|
 |-------------|-------|
-|PB10         |HO1    |
-|PB09         |HO2    |
-|PB08         |HO3    |
-|PB15         |LO1    |
-|PB14         |LO2    |
-|PB13         |LO3    |
+|PB10         |HIN1    |
+|PB09         |HIN2    |
+|PB08         |HIN3    |
+|PB15         |LIN1    |
+|PB14         |LIN2    |
+|PB13         |LIN3    |
 
 ### Firmware
 Existing firmware was unprotected and could be read using STM-Link V2. Soldering headers was a bit difficult as pin holes were already filled with solder.
