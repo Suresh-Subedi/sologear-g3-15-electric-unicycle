@@ -9,6 +9,13 @@ Schematics of other generic cheaper electric unicycles (monowheels) should be sa
 ![image](./images/pcb-schema-kicad.png)
 ![image](./images/pcb-schema-kicad1.png)
 
+|Step|1   |2   |3   |4   |5   |6   |
+|----|----|----|----|----|----|----|
+|High|A   |B   |B   |C   |C   |A   |
+|Low |C   |C   |A   |A   |B   |B   |
+|    |H1L3|H2L3|H2L1|H3L1|H3L2|H1L2|
+
+
 #### Connections
 |STM32F103C8T6|MPU 6050|Comment         |
 |-------------|--------|----------------|
