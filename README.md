@@ -15,6 +15,15 @@ Schematics of other generic cheaper electric unicycles (monowheels) should be sa
 |Low |C   |C   |A   |A   |B   |B   |
 |    |H1L3|H2L3|H2L1|H3L1|H3L2|H1L2|
 
+https://www.digikey.be/nl/articles/what-is-the-most-effective-way-to-commutate-a-bldc-motor
+| |U  |V  |W  |
+|1|+  |-  |off|
+|2|+  |off|-  |
+|3|off|+  |-  |
+|4|-  |+  |off|
+|5|-  |off|+  |
+|6|off|-  |+  |
+
 
 #### Connections
 |STM32F103C8T6|MPU 6050|Comment         |
