@@ -17,6 +17,7 @@ Schematics of other generic cheaper electric unicycles (monowheels) should be sa
 
 https://www.digikey.be/nl/articles/what-is-the-most-effective-way-to-commutate-a-bldc-motor
 | |U  |V  |W  |
+|-|---|---|---|
 |1|+  |-  |off|
 |2|+  |off|-  |
 |3|off|+  |-  |
