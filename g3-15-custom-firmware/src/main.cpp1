@@ -1,0 +1,180 @@
+#include <Arduino.h>
+
+int i = 0;
+
+int HIn1 = PB10;
+int HIn2 = PB9;
+int HIn3 = PB8;
+int LIn1 = PB15;
+int LIn2 = PB14;
+int LIn3 = PB13;
+
+int A = 1;
+int B = 2;
+int C = 3;
+
+bool invert = false;
+
+int total_duration_ms = 20; //20000;
+int pulse_duration_ms = 10; //1450;
+int pulse_off_duration_ms = total_duration_ms - pulse_duration_ms;
+
+//1 ms: -90, 1.5ms: 0, 2ms: 90, 20ms: on/off length
+
+void s1(bool state);
+void s2(bool state);
+void s3(bool state);
+void s4(bool state);
+void s5(bool state);
+void s6(bool state);
+void l1();
+bool xor1(bool invert, bool state);
+
+void setup() {
+  // put your setup code here, to run once:
+  pinMode(HIn1, OUTPUT);
+  pinMode(HIn2, OUTPUT);
+  pinMode(HIn3, OUTPUT);
+  pinMode(LIn1, OUTPUT);
+  pinMode(LIn2, OUTPUT);
+  pinMode(LIn3, OUTPUT);
+}
+
+
+void x(int phase, bool state) {
+  switch(phase) {
+    case 1: //A
+      if(state == HIGH) {
+        digitalWrite(HIn1, HIGH);
+      } else {
+
+      }
+      break;
+  }
+
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  if(i < 50) {    
+    l1();
+    i++;
+  }
+}
+
+void l1() {
+  // digitalWrite(LIn1, HIGH);
+  // digitalWrite(LIn2, HIGH);
+  // digitalWrite(LIn3, HIGH);
+  
+  //digitalWrite(HIn1, HIGH);
+  s1(true);
+  delay(pulse_duration_ms);
+  s1(false);
+  delay(pulse_off_duration_ms);
+
+  s2(true);
+  delay(pulse_duration_ms);
+  s2(false);
+  delay(pulse_off_duration_ms);
+
+  s3(true);
+  delay(pulse_duration_ms);
+  s3(false);
+  delay(pulse_off_duration_ms);
+
+  s4(true);
+  delay(pulse_duration_ms);
+  s4(false);
+  delay(pulse_off_duration_ms);
+
+  s5(true);
+  delay(pulse_duration_ms);
+  s5(false);
+  delay(pulse_off_duration_ms);
+
+  s6(true);
+  delay(pulse_duration_ms);
+  s6(false);
+  delay(pulse_off_duration_ms); 
+  //digitalWrite(HIn1, LOW);
+  delay(1000);
+}
+
+void s1(bool state) {
+  digitalWrite(HIn1, state);
+  digitalWrite(LIn2, invert != state);
+}
+
+void s2(bool state) {
+  digitalWrite(HIn1, state);
+  digitalWrite(LIn3, invert != state);
+}
+
+void s3(bool state) {
+  digitalWrite(HIn2, state);
+  digitalWrite(LIn3, invert != state);
+}
+
+void s4(bool state) {
+  digitalWrite(HIn2, state);
+  digitalWrite(LIn1, invert != state);
+}
+
+void s5(bool state) {
+  digitalWrite(HIn3, state);
+  digitalWrite(LIn1, invert != state);
+}
+
+void s6(bool state) {
+  digitalWrite(HIn3, state);
+  digitalWrite(LIn2, invert != state);
+}
+
+/*void s1(bool state) { //h1l3
+  //digitalWrite(LIn2, state);
+
+  digitalWrite(HIn1, state);
+  digitalWrite(LIn3, invert != state); //! XOR
+}
+
+void s2(bool state) { //h2l3
+  //digitalWrite(HIn1, !state);
+
+  digitalWrite(HIn2, state);
+  digitalWrite(LIn3, invert != state); //!
+}
+
+void s3(bool state) { //h2l1
+  //digitalWrite(LIn3, state);
+
+  digitalWrite(HIn2, state);
+  digitalWrite(LIn1, invert != state); //!
+}
+
+void s4(bool state) { //h3l1
+  //digitalWrite(HIn2, !state);
+
+  digitalWrite(HIn3, state);
+  digitalWrite(LIn1, invert != state); //!
+}
+
+void s5(bool state) { //h3l2
+  //digitalWrite(LIn1, state);
+
+  digitalWrite(HIn3, state);
+  digitalWrite(LIn2, invert != state); //!
+}
+
+void s6(bool state) { //h1l2
+  //digitalWrite(HIn3, LOW);
+  //digitalWrite(HIn3, !state);
+
+  //digitalWrite(HIn1, HIGH);
+  digitalWrite(HIn1, state);
+  digitalWrite(LIn2, xor1(invert, state)); //! //XOR
+}*/
+
+bool xor1(bool invert, bool state) { 
+  return invert != state;
+}
