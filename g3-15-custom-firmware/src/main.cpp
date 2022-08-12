@@ -18,7 +18,7 @@ int NEG = -1;
 
 bool invert = true;
 
-void a(int state, int pin);
+void setState(int state, int pin);
 
 void s1();
 void s2();
@@ -42,13 +42,13 @@ void setup()
 }
 
 void loop()
-{
-    s1();    
+{       
     s2();
     s3();
     s4();
     s5();
     s6();
+    s1();
 }
 
 void s1()
@@ -108,19 +108,18 @@ void s6()
 
 void u(int state)
 {
-    a(state, 3);
+    setState(state, 3);
 }
 void v(int state)
 {
-    a(state, 2);
+    setState(state, 2);
 }
 void w(int state)
 {
-    a(state, 1);
+    setState(state, 1);
 }
 
-void a();
-void a(int state, int pin)
+void setState(int state, int pin)
 {
     int hpin = pins_h[pin - 1];
     int lpin = pins_l[pin - 1];
