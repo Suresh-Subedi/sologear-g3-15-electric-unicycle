@@ -9,6 +9,7 @@ Schematics of other generic cheaper electric unicycles (monowheels) should be sa
 |1  |5V     |             |
 |2  |       |Not connected|
 |3  |SPK    |             |
+
 Connected in parallel with buzzer
 
 #### P3 Power switch LED
