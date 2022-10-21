@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"name": "g3-15-custom-firmware",
+			"path": "g3-15-custom-firmware"
+		}
+	],
+	"settings": {}
+}

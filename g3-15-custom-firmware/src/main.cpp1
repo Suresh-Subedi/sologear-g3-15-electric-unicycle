@@ -2,9 +2,9 @@
 
 int i = 0;
 
-int HIn1 = PB10;
-int HIn2 = PB9;
-int HIn3 = PB8;
+int HIn1 = PA10;
+int HIn2 = PA9;
+int HIn3 = PA8;
 int LIn1 = PB15;
 int LIn2 = PB14;
 int LIn3 = PB13;

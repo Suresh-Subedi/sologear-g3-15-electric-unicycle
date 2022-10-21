@@ -1,0 +1,157 @@
+#include <Arduino.h>
+
+//http://electronoobs.com/eng_circuitos_tut19_code1.php
+
+int SensorA = PA0; // Blue Pin 2, originally 8
+int SensorB = PA1; // Yellow Pin 3, originally 9
+int SensorC = PA2; // Green Pin 4, originally 10
+
+int HIn1 = PA10;
+int HIn2 = PA9;
+int HIn3 = PA8;
+int LIn1 = PB15;
+int LIn2 = PB14;
+int LIn3 = PB13;
+
+int fase = 1;
+int Delay=4000;
+unsigned long previousMillis = 0; 
+unsigned long currentMillis = 0;
+
+void ISR();
+
+void setup()
+{
+    pinMode(SensorA,INPUT);
+    pinMode(SensorB,INPUT);
+    pinMode(SensorC,INPUT);
+
+    pinMode(HIn1, OUTPUT);
+    pinMode(HIn2, OUTPUT);
+    pinMode(HIn3, OUTPUT);
+    pinMode(LIn1, OUTPUT);
+    pinMode(LIn2, OUTPUT);
+    pinMode(LIn3, OUTPUT);
+
+    digitalWrite(HIn1, LOW);
+    digitalWrite(HIn2, LOW);
+    digitalWrite(HIn3, LOW);
+    digitalWrite(LIn1, LOW);
+    digitalWrite(LIn2, LOW);
+    digitalWrite(LIn3, LOW);
+
+    //Configuration high/low?
+    //CRL: set type and/or speed of pins 0 - 7
+    //CRH: set type and/or speed of pins 8 - 15
+    //3: output, 8: input, f: retain
+    //1 pin = 4 bit, 
+    //GPIOA->CRL = (GPIOA->CRL & 0x00F00F00) | 0x88000080 |0x00033003;
+
+    /*GPIOA->CRL = (GPIOA->CRL & 0xFFFFFFFF) | 0x00000888; //Set pin 0, 1, 2 as input and retain original state for others
+    GPIOA->CRH = (GPIOA->CRH & 0xFFFFFFFF) | 0x00000333; //Set pin 8, 9, 10 as output and retain original state for others
+    GPIOB->CRH = (GPIOA->CRH & 0xFFFFFFFF) | 0x33300888; //Set pin 13, 14, 15 as output and retain original state for others
+    //Output data register, 0 - 15
+    GPIOA->ODR &= ~(0b0000011100000000); //~: flip, set 9, 10, 11 low and retain others
+    GPIOB->ODR &= ~(0b1110000000000000); //~: flip, set 13, 14, 15 low and retain others*/
+
+    attachInterrupt(digitalPinToInterrupt(SensorA), ISR, CHANGE);
+    attachInterrupt(digitalPinToInterrupt(SensorB), ISR, CHANGE);
+    attachInterrupt(digitalPinToInterrupt(SensorC), ISR, CHANGE);
+
+    currentMillis = micros();
+}
+
+void loop() {
+  currentMillis = micros();
+  if(currentMillis - previousMillis >= Delay){
+  
+    previousMillis += Delay;   
+    
+    switch(fase){
+
+      //Phase1 A-B
+      	case 1:
+        //PORTD = B10010000;  //  Pin 7 and 4 to HIGH
+        GPIOA->ODR &= ~(0b0000001100000000);
+        GPIOB->ODR &=      ~(0b1010000000000000);
+        GPIOA->ODR |=   0b0000010000000000;
+        GPIOB->ODR |=        0b0100000000000000;
+        break;       
+    
+        //Phase2 C-B
+        case 2:
+        //PORTD = B00011000;  //  Pin 3 and 4 to HIGH
+        GPIOA->ODR &= ~(0b0000011000000000);
+        GPIOB->ODR &=      ~(0b1010000000000000);
+        GPIOA->ODR |=   0b0000000100000000;
+        GPIOB->ODR |=        0b0100000000000000;
+        break;
+    
+        //Phase3 C-A
+        case 3:
+        //PORTD = B01001000;  //  Pin 3 and 6 to HIGH
+        GPIOA->ODR &= ~(0b0000011000000000);
+        GPIOB->ODR &=      ~(0b0110000000000000);
+        GPIOA->ODR |=   0b0000000100000000;
+        GPIOB->ODR |=        0b1000000000000000;
+        break;
+     
+        //Phase4 B-A
+        case 4:
+        //PORTD = B01100000;  //  Pin 5 and 6 to HIGH
+        GPIOA->ODR &= ~(0b0000010100000000);
+        GPIOB->ODR &=      ~(0b0110000000000000);
+        GPIOA->ODR |=   0b0000001000000000;
+        GPIOB->ODR |=        0b1000000000000000;
+        break;
+    
+        //Phase5 B-C
+        case 5:
+        //PORTD = B00100100;  //  Pin 5 and 2 to HIGH
+        GPIOA->ODR &= ~(0b0000010100000000);
+        GPIOB->ODR &=      ~(0b1100000000000000);
+        GPIOA->ODR |=   0b0000001000000000;
+        GPIOB->ODR |=        0b0010000000000000;
+        break;
+    
+        //Phase6 A-C
+        case 6:
+        //PORTD = B10000100;  //  Pin 7 and 2 to HIGH
+        GPIOA->ODR &= ~(0b0000001100000000);
+        GPIOB->ODR &=      ~(0b1100000000000000);
+        GPIOA->ODR |=   0b0000010000000000;
+        GPIOB->ODR |=        0b0010000000000000;
+        break;
+    }//end of switch       
+  }//Case of if millis  
+  
+  //Delay=map(analogRead(pot),0,1024,1,4000); //we obtain the delay speed using the potentiometer                 
+}//Void end
+
+//ISR: Interrupt Service Routine
+void ISR() {
+  /*
+  if(  (PINB & B00000101) && fase == 6  ){   
+    fase = 1;    
+  }
+  */
+
+  if((GPIOA->IDR & 0b0000000000000101) && fase == 6) {
+    fase = 1;
+  }
+  else if((GPIOA->IDR & 0b0000000000000100) && fase == 1) {
+    fase = 2;
+  }
+  else if((GPIOA->IDR & 0b0000000000000110) && fase == 2) {
+    fase = 3;
+  }
+  else if((GPIOA->IDR & 0b0000000000000010) && fase == 3) {
+    fase = 4;
+  }
+  else if((GPIOA->IDR & 0b0000000000000011) && fase == 4) {
+    fase = 5;
+  }
+  else if((GPIOA->IDR & 0b0000000000000001) && fase == 5) {
+    fase = 6;
+  }
+}
