@@ -2,6 +2,61 @@
 Sologear G3-15 Electric Unicycle reverse engineering to reuse motherboard with custom firmware.
 Schematics of other generic cheaper electric unicycles (monowheels) should be same/similar. Let us know in the issues. You can also comment in Bill of materials.
 
+### Ports
+#### P2
+|Pin|Marking|Comment      |
+|---|-------|-------------|
+|1  |5V     |             |
+|2  |       |Not connected|
+|3  |SPK    |             |
+
+Connected in parallel with buzzer
+
+#### P3 Power switch LED
+|Pin|Marking|Comment|
+|---|-------|-------|
+|1  |       |5V     |
+|2  |       |       |
+|3  |       |       |
+
+#### P4 Hall sensor
+|STM32F103C8T6|Hall sensor|Color |Comment        |
+|-------------|-----------|------|---------------|
+|             |1          |Black |GND            |
+|PA0          |2          |Blue  |               |
+|PA1          |3          |Yellow|               |
+|PA2          |4          |Green |               |
+|             |5          |Red   |5V              |
+
+#### P5 Battery indicator
+|STM32F103C8T6|P4 Battery Indicator|Color |Comment        |
+|-------------|--------------------|------|---------------|
+|PA15         |1                   |Black |Via resistor R1|
+|PB4          |2                   |Blue  |Via resistor R2|
+|PB5          |3                   |Yellow|Via resistor R3|
+|PB8          |4                   |Green |Via resistor R4|
+|             |5                   |Red   |+5V            |
+
+#### P6
+|Pin|Marking|Comment|
+|---|-------|-----------------------|
+|1  |       |PA4 via R6 10k resistor|
+|2  |       |GND                    |
+
+#### P7 Power switch ON OFF PWR
+|Pin|Marking|Comment      |
+|---|-------|-------------|
+|1  |       |+60V         |
+|2  |       |To board     |
+
+#### SWD
+|STM32F103C8T6|SWD|
+|-------------|---|
+|PA14         |SWC|
+|PA13         |SWD|
+|             |3V3|
+|             |GND|
+
 [Bill of materials](https://docs.google.com/spreadsheets/d/1EM--kQIaX84T2JI6LrDOyGJttcWCDYOLsfqfUfqGejQ/edit?usp=sharing)
 
 ![image](./images/sologear-g3-15.webp)
@@ -18,6 +73,7 @@ Schematics of other generic cheaper electric unicycles (monowheels) should be sa
 |    |H1L3|H2L3|H2L1|H3L1|H3L2|H1L2|
 
 https://www.digikey.be/nl/articles/what-is-the-most-effective-way-to-commutate-a-bldc-motor
+https://www.digikey.nl/en/blog/using-bldc-hall-sensors-as-position-encoders-part-1
 | |U  |V  |W  |Step|
 |-|---|---|---|----|
 |1|+  |-  |off|6   |
@@ -35,32 +91,9 @@ https://www.digikey.be/nl/articles/what-is-the-most-effective-way-to-commutate-a
 |PB7          |SDA     |Via resistor R31|
 |PB6          |SCL     |Via resistor R33|
 
-|STM32F103C8T6|SWD|
-|-------------|---|
-|PA14         |SWC|
-|PA13         |SWD|
-|             |3V3|
-|             |GND|
-
-|STM32F103C8T6|P4 Battery Indicator|Color |Comment        |
-|-------------|--------------------|------|---------------|
-|PA15         |1                   |Black |Via resistor R1|
-|PB4          |2                   |Blue  |Via resistor R2|
-|PB5          |3                   |Yellow|Via resistor R3|
-|PB8          |4                   |Green |Via resistor R4|
-|             |5                   |Red   |+5V            |
-
-|STM32F103C8T6|Hall sensor|Color |Comment        |
-|-------------|-----------|------|---------------|
-|             |1          |Black |GND            |
-|PA0          |2          |Blue  |               |
-|PA1          |3          |Yellow|               |
-|PA2          |4          |Green |               |
-|             |5          |Red   |               |
-
 Half-Bridge Driver connections
-|STM32F103C8T6|IRS2108|
-|-------------|-------|
+|STM32F103C8T6|IRS2108 |
+|-------------|--------|
 |PB10         |HIN1    |
 |PB09         |HIN2    |
 |PB08         |HIN3    |
