@@ -2,6 +2,8 @@
 Sologear G3-15 Electric Unicycle reverse engineering to reuse motherboard with custom firmware.
 Schematics of other generic cheaper electric unicycles (monowheels) should be same/similar. Let us know in the issues. You can also comment in Bill of materials.
 
+Monowheel folder contains KiCad files for the monowheel.
+
 ### Ports
 #### P2
 |Pin|Marking|Comment      |
