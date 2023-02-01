@@ -1,6 +1,12 @@
 # Sologear G3-15 Electric Unicycle
 Sologear G3-15 Electric Unicycle reverse engineering to reuse motherboard with custom firmware.
-Schematics of other generic cheaper electric unicycles (monowheels) should be same/similar. Let us know in the issues. You can also comment in Bill of materials.
+Schematics of other generic cheaper electric unicycles (monowheels) should be same/similar. Let us know in the issues.
+
+### Running code
+Install Platform IO extension in VS Code.
+Open firmware folder in VS Code
+Connect programmer (without connecting 3.3V)
+Switch monowheel on
 
 ### Ports
 #### P2
@@ -29,6 +35,7 @@ Connected in parallel with buzzer
 |             |5          |Red   |5V              |
 
 #### P5 Battery indicator
+From switch to charging connector: 1 - 4
 |STM32F103C8T6|P4 Battery Indicator|Color |Comment        |
 |-------------|--------------------|------|---------------|
 |PA15         |1                   |Black |Via resistor R1|
@@ -108,7 +115,7 @@ Existing firmware was unprotected and could be read using STM-Link V2. Soldering
 STM32F103C8T6\
 InvenSense MPU 6050\
 6 MOSFET ST P75NF75&\
-[IRS2108 Half-bridge Driver](https://www.infineon.com/dgdl/irs2108.pdf?fileId=5546d462533600a40153567649d627a8)
+[IRS2108 Half-bridge Driver](https://www.infineon.com/dgdl/irs2108.pdf?fileId=5546d462533600a40153567649d627a8) 8-Lead SOIC
 
 ### Battery
 59.2V/4.4Ah 260Wh SAMSUNG/22PM\
