@@ -8,6 +8,8 @@ Open firmware folder in VS Code
 Connect programmer (without connecting 3.3V)
 Switch monowheel on
 
+Monowheel folder contains KiCad files for the monowheel.
+
 ### Ports
 #### P2
 |Pin|Marking|Comment      |
