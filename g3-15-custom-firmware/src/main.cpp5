@@ -1,0 +1,75 @@
+#include <SimpleFOC.h>
+
+int polePairs = 15;
+int encA = PA0; // HallSensor A pin
+int encB = PA1;
+int encC = PA2;
+
+int led1 = PA15;
+int led2 = PB4;
+int led3 = PB5;
+int led4 = PB8;
+int leds[] = { led1, led2, led3, led4 };
+
+// Hall sensor instance
+// HallSensor(int hallA, int hallB , int hallC, int pp)
+//  - hallA, hallB, hallC    - HallSensor A, B and C pins
+//  - pp                     - pole pairs
+HallSensor sensor = HallSensor(encA, encB, encC, polePairs);
+
+// Interrupt routine intialisation
+// channel A and B callbacks
+void doA() { sensor.handleA(); }
+void doB() { sensor.handleB(); }
+void doC() { sensor.handleC(); }
+
+// BLDCMotor motor = BLDCMotor(polePairs);
+
+void ledOn () {
+  digitalWrite(led1, LOW);
+}
+void ledOff () {
+  digitalWrite(led1, HIGH);
+}
+
+void displayAngle(int angle) {
+  if (angle > 300) {
+    digitalWrite(led4, LOW);
+  }
+  if (angle > 200) {
+    digitalWrite(led3, LOW);
+  }
+  if (angle > 100) {
+    digitalWrite(led2, LOW);
+  }
+  if (angle > 0) {
+    digitalWrite(led1, LOW);
+  }
+}
+
+void setup()
+{
+  pinMode(led1, OUTPUT);
+  // use internal pullups
+  sensor.pullup = Pullup::USE_INTERN;
+  // initialize encoder sensor hardware
+  sensor.init();
+  sensor.enableInterrupts(doA, doB, doC);
+
+  ledOn();
+  _delay(5000);
+  ledOff();
+
+  // link the sensor to the motor
+  //motor.linkSensor(&sensor);
+  // link the driver to the motor
+  //motor.linkDriver(&driver);
+}
+
+void loop()
+{
+  sensor.update();
+  int a = sensor.getAngle();
+  displayAngle(a);
+  _delay(2000);
+}

@@ -1,1 +1,6 @@
-{}
+{
+  "files.associations": {
+    "*.tpl": "html",
+    "*.cpp4": "cpp"
+  }
+}
